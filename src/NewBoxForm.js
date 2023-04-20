@@ -1,17 +1,25 @@
 import { useState } from "react";
 import "./NewBoxForm.css";
 
-function NewBoxForm({ addItem }) {
+/** Form for creating a new box to add to a list of boxes.
+ *
+ * Has state for the height, width, backgroundColor of the item; on submission,
+ * sends {height, width, backgroundColor} to fn received from parent.
+ *
+ * BoxList -> NewBoxForm
+ */
+
+function NewBoxForm({ addBox }) {
   const initialState = { height: "", width: "", backgroundColor: "" };
   const [formData, setFormData] = useState(initialState);
 
   console.log("formData", formData);
 
-  /** Send {name, quantity} to parent
+  /** Send {height, width, backgroundColor} to parent
    *    & clear form. */
   function handleSubmit(evt) {
     evt.preventDefault();
-    addItem(formData);
+    addBox(formData);
     setFormData(initialState);
   }
 
@@ -59,7 +67,7 @@ function NewBoxForm({ addItem }) {
         className="backgroundColor"
       />
 
-      <button>Add a new item!</button>
+      <button>Add a new box!</button>
     </form>
   );
 }
