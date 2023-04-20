@@ -1,0 +1,10 @@
+.NewBoxForm {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 500px;
+}
+
+/* input {
+  display: block;
+} */
